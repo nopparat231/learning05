@@ -1,0 +1,16 @@
+
+.buttonn {
+  color: #FE7452;
+  background-color: #FED497;
+  border: 1px solid #FE7452;
+  border-radius: 7px;
+  padding: 0 15px;
+  cursor: pointer;
+  height: 45px;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+.buttonn:hover {
+  transform: scale(1.1);
+}
