@@ -9,10 +9,10 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 if (isset($_SESSION["UserID"])) {
-    header('Location: index1.php');
-    exit;
-  }
-  
+  header('Location: index1.php');
+  exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,126 +20,88 @@ if (isset($_SESSION["UserID"])) {
 
 <?php include 'header.php'; ?>
 
+<div class="py-2">
+  <div class="container">
+   <div class="row">
+    <?php
+    $regis = isset($_GET['register']);
+    $learning = isset($_GET['learning']);
 
-<div class="container">
- <div class="row">
+    if ($regis <> ''): ?>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-7 text-center ">
+        <?php include 'register.php'; ?>
+      </div>
+      <?php elseif ($learning <> ''): ?>
+        <div class="col-md-12">
+          <?php include 'index1.php'; ?>
+        </div>
+        <?php else: ?>
 
-  <div class="col-md-6"> <!-- ใส่วิดีโอตัวอย่าง -->
-    <br><br>
-    <img src="img/img47.jpg" align="center" width="100%" height="77%">
-    <br>
+          <div class="col-md-12" style="text-align: center;"> <!-- ใส่วิดีโอตัวอย่าง -->
+
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/qllEXQACumc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <br>
+            <font color="red">
+              <h4 class="">คำแนะนำ </h4>
+              <h5 style="text-align: left;">
+                <ol class="">
+                  <li>ระบบมีมาตราการเพื่อป้องกันข้อมูลส่วนบุคคล ขอให้ท่านได้ศึกษาและปฏิบัติตามขั้นตอนตามลำดับ</li>
+                  <li>ท่านต้องลงทะเบียนและใช้รหัสผ่านในการเข้าสู่ระบบ</li>
+                  <li>ควรเป็นผู้ทำรายการทุกขั้นตอนด้วยตัวเองและรักษารหัสผ่านเป็นความลับเพื่อป้องกันการแอบอ้างการเข้าสู่ระบบ</li>
+                  <li>ผู้ที่ยังไม่สมัครเป็นสมาชิกให้กดปุ่ม สมัครสมาชิก สำหรับผู้ที่สมัครเป็นสมาชิกให้กดปุ่ม เข้าสู่ระบบ เพื่อทำการ Login เข้าสู่ระบบ</li>
+
+                </ol>
+              </h5>
+            </font>
+
+
+
+          </div>
+
+
+        <?php endif ?>
+
+
+      </div>
+    </div>
   </div>
-
-  <div class="col-md-6" >
-    <br>
-    <h3 class="text-center">สมัครสมาชิก</h3>
-    <form class="" id="c_form-h" action="register_db.php" method="post">
-      <div class="form-group row"><label class="col-2 col-form-label">ชื่อผู้ใช้</label>
-        <div class="col-10">
-          <div class="input-group">
-            <input type="text" name="Username" class="form-control" id="input-user" required placeholder="กรุณากรอกชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="3" maxlength="25" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();" autocomplete="off" >
-
-          </div>
-        </div>
-      </div>
-      <div class="form-group row"> 
-        <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
-        <div class="col-10">
-          <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" autocomplete="off" >
-          <span id="result"></span>
-        </div>
-
-      </div> 
-
-      <div class="form-group row">
-       <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัส<br></label>
-       <div class="col-10">
-        <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" required class="form-control" id="inputpasswordh" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="กรุณากรอกยืนยันรหัสผ่าน" minlength="6" maxlength="25"  >
-        <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
-
-      </div>
-    </div>
-    <div class="form-group row"><label class="col-2">ชื่อ</label>
-      <div class="col-10">
-        <div class="input-group">
-          <input type="text" name="Firstname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ" onkeyup="validate();" minlength="3" maxlength="25"  title="ใส่ ก-ฮ หรือ a-z อย่างน้อย 3 ตัว"></div>
-
-        </div>
-      </div>
-      <div class="form-group row"><label class="col-2">นามสกุล</label>
-        <div class="col-10">
-          <div class="input-group">
-            <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล อย่างน้อย 3 ตัว" placeholder="กรุณากรอกนามสกุล" onkeyup="validate();" minlength="3" maxlength="25"  title="ใส่ ก-ฮ หรือ a-z อย่างน้อย 3 ตัว"></div>
-
-          </div>
-        </div>
-        <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">อีเมล์</label>
-          <div class="col-10">
-            <input type="email" name="email" class="form-control" id="inputmailh" required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์" title="กรุณาใช้ อีเมล์ ที่ใช้งานได้จริง">
-
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-2">เบอร์โทร<br></label>
-          <div class="col-10">
-            <div class="input-group">
-              <input name="phone" class="form-control" id="input-num" required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" value="" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-              type="tel"
-              maxlength = "10" onkeyup="num();"></div>
-
-            </div>
-          </div>
-
-          <div class="py-1">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12 text-center">
-
-                  <button name="btn" class="btn btn-xs btn-danger" style="background-color: #FED497;" >
-                    <font color="#0000" size="4"><b>สมัครสมาชิก</b></font></button>
-                    <!-- <a class="btn btn-danger text-light mx-1" href="index.php">ยกเลิก</a> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-
-    <?php include 'footer.php'; ?>
-
-    </html>
+  <?php include 'footer.php'; ?>
 
 
-    <script type="text/javascript">
+  </html>
 
-      function validate() {
-        var element = document.getElementById('input-field');
-        element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
-      };
 
-      function num() {
-        var element = document.getElementById('input-num');
-        element.value = element.value.replace(/[^0-9]+/, '');
-      };
+  <script type="text/javascript">
 
-      function user() {
-        var element = document.getElementById('input-user');
-        element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
-      };
-    </script>
+    function validate() {
+      var element = document.getElementById('input-field');
+      element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+    };
 
-    <script type="text/javascript">
-      function checkPasswordMatch() {
-        var password = $("#txtNewPassword").val();
-        var confirmPassword = $("#txtConfirmPassword").val();
-        if (password != confirmPassword)
-          $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
-        else
-          $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
-      }
+    function num() {
+      var element = document.getElementById('input-num');
+      element.value = element.value.replace(/[^0-9]+/, '');
+    };
+
+    function user() {
+      var element = document.getElementById('input-user');
+      element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
+    };
+  </script>
+
+  <script type="text/javascript">
+    function checkPasswordMatch() {
+      var password = $("#txtNewPassword").val();
+      var confirmPassword = $("#txtConfirmPassword").val();
+      if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
+      else
+        $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
+    }
 
           /*
   jQuery document ready.

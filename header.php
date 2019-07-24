@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 
@@ -11,7 +11,9 @@
   <link rel="shortcut icon" href="./img/img47.jpg" />
   <style type="text/css">
     body {
-      font-family: 'Prompt', sans-serif;
+      background-image: url("img/email-pattern.png");
+      background-color: #cccc;
+      font-family: 'Itim', cursive;
     }
 
   </style>
@@ -19,13 +21,5 @@
 
 <body>
 
-
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" >
-         <?php include 'navbar.php'; ?>
-         <?php include 'navbar1.php'; ?>
-       </div>
-     </div>
-   </div>
+ <?php include 'carousel.php'; ?>
+ <?php include 'navbar.php'; ?>
