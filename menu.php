@@ -4,9 +4,9 @@
              $ss = $_SESSION["Userlevel"];
            } ?>
 
-           <div class="col-md-3">
-             <ul class="list-group">
-              <a href="index1.php" class="border-0 list-group-item d-flex justify-content-between align-items-center list-group-item-action"> หน้าหลัก <i class="fa fa-home text-muted fa-lg"></i></a>
+           <div class="col-md-3" >
+             <ul class="list-group" >
+              <a href="index1.php" class="border-0 list-group-item d-flex justify-content-between align-items-center list-group-item-action" > หน้าหลัก <i class="fa fa-home text-muted fa-lg"></i></a>
               <?php if($ss == "M"){ ?>
 
                <a href="index1.php?learning" class="border-0 list-group-item d-flex justify-content-between align-items-center list-group-item-action"> บทเรียน <i class="fa fa-list text-muted fa-lg"></i></a>

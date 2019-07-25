@@ -17,7 +17,7 @@ if(session_status() == PHP_SESSION_NONE){
   <div class="container">
     <div class="row">
 
-      <?php include 'menu.php'; ?>
+      <?php //include 'menu.php'; ?>
       <?php include '../conn.php'; ?>
 
       <?php include 'datatables.php'; ?>

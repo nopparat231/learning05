@@ -9,7 +9,7 @@
       <form action="login_db.php" method="post" > 
         <div class="modal-content">
           <div class="modal-header text-center">
-            <h5 class="modal-title">Login</h5> 
+            <h5 class="modal-title">เข้าสู่ระบบ</h5> 
             <button type="button" class="close" data-dismiss="modal"> <span>×</span> </button>
           </div>
 
@@ -28,7 +28,7 @@
                 <a href="" class="pull-right" data-toggle="modal" data-dismiss="modal" data-target="#resetpass" >ลืมรหัสผ่าน</a>
               </div>
               <div class="modal-footer">
-               <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
+               <button type="submit" class="btn btn-primary" style="background-color: #581845">เข้าสู่ระบบ</button>
                <button type="submit" class="btn btn-secondary" data-dismiss="modal">ปิด</button> 
              </div>
            </div>
@@ -42,7 +42,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">ลืมรหัสผ่าน</h5> 
-            <button type="button" class="close" data-dismiss="modal"> <span>×</span> 
+            <button type="button" class="close" data-dismiss="modal" style="background-color: #581845"> <span>×</span> 
             </button>
           </div>
           <div class="modal-body">
@@ -57,7 +57,7 @@
             
           </div>
           <div class="modal-footer"> 
-            <button type="submit" class="btn btn-primary">ลืมรหัสผ่าน</button> 
+            <button type="submit" class="btn text-light " style="background-color: #581845">ลืมรหัสผ่าน</button> 
             <button type="submit" class="btn btn-secondary" data-dismiss="modal">ปิด</button> 
           </div>
         </div>
