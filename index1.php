@@ -5,6 +5,13 @@ if(session_status() == PHP_SESSION_NONE){
   session_start();
 }
 ?>
+<style type="text/css">
+  .card:hover {
+    transform: scale(1.10) translateZ(0);
+
+  }
+
+</style>
 <?php include 'check.php'; ?>
 <!DOCTYPE html>
 <html>
@@ -13,53 +20,73 @@ if(session_status() == PHP_SESSION_NONE){
 
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
 
-    <?php include 'menu.php'; ?>
-    <?php include 'model.php'; ?>
 
-    <?php
-    $regis = isset($_GET['register']);
-    $learning = isset($_GET['learning']);
+      <?php include 'carousel.php'; ?>
+      <?php include 'navbar.php'; ?>
+     
 
-    if ($regis <> ''): ?>
-     <div class="col-md-9">
-      <?php include 'register.php'; ?>
-    </div>
-    <?php elseif ($learning <> ''): ?>
-      <div class="col-md-9">
-        <?php include 'index2.php'; ?>
+      <?php //include 'menu.php'; ?>
+      <?php include 'model.php'; ?>
+
+      <?php
+      $regis = isset($_GET['register']);
+      $learning = isset($_GET['learning']);
+
+      if ($regis <> ''): ?>
+       <div class="col-md-9">
+        <?php include 'register.php'; ?>
       </div>
-      <?php else: ?>
-
-        <div class="col-md-9" align="center">
-          <img src="img/img47.jpg">
-          <br>
-          <br>
+      <?php elseif ($learning <> ''): ?>
+        <div class="col-md-9">
+          <?php include 'index2.php'; ?>
         </div>
+        <?php else: ?>
 
-      <?php endif ?>
+          <div class="row" align="left">
+            <div class="col-md-12">
 
+
+              <!-- Card Deck -->
+              <div class="card-columns">
+
+                <?php include 'index2.php'; ?>
+
+
+
+              </div> <!-- End card -->
+
+
+              <br>
+              <br>
+            </div>
+          </div>
+
+        <?php endif ?>
+
+
+      </div>
     </div>
   </div>
-</div>
-<?php
-if ($learning <> ''): ?>
-  <style>
-    .footer {
-     position: fixed;
-     bottom: 0;
-     width: 100%;
-     color: white;
-     text-align: center;
-   }
- </style>
+  <?php
+  if ($learning <> ''): ?>
+    <!-- <style>
+      .footer {
+       position: fixed;
+       bottom: 0;
+       width: 100%;
+       color: white;
+       text-align: center;
+     }
+   </style> -->
 
 
-<?php endif ?>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <?php endif ?>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<?php include 'footer.php'; ?>
+ <?php include 'footer.php'; ?>
 
 
 
-</html>
+ </html>

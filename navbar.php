@@ -10,6 +10,35 @@
 
      <b><font color="blue">หน้าหลัก</font></b>
    </a>
+
+   <?php if (isset($_SESSION["Userlevel"]) == "M") { ?>
+    <?php $user_id=$_SESSION['UserID']; ?>
+    <ul class="navbar-nav">
+
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ข้อมูลผู้ใช้</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="score.php?user_id=<?php echo $user_id; ?>">คะแนนผู้ใช้</a>
+            <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูลผู้ใช้</a>
+            <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
+
+          </div>
+        </li>
+        <a class="nav-link" href="score_all.php">คะแนนผู้ใช้ทั้งหมด</a> </li>
+      </ul>
+
+    <?php }else{ ?>
+
+     <ul class="navbar-nav mx-auto">
+      <li class="nav-item"> 
+        <a class="nav-link" href="#"></a> </li>
+        <li class="nav-item dropdown"> 
+
+        </li>
+      </ul>
+
+    <?php }?>
+
     <ul class="navbar-nav mx-auto"></ul>
     <ul class="navbar-nav">
 
@@ -21,30 +50,30 @@
 
       <?php if(isset($_SESSION["Userlevel"]) == "M"): ?>
         <li class="nav-item">
-          
-            <?php echo "ยินดีต้อนรับคุณ " . $_SESSION["User"]; ?>
-         
+
+          <?php echo "ยินดีต้อนรับคุณ "; ?>
+
         </li>
-       
+
       <?php endif ?>
 
     </ul>
 
-   <ul class="navbar-nav ">
-    <li class="nav-item "> 
-      <?php if (isset($_SESSION["Userlevel"]) == "M") { 
+    <ul class="navbar-nav ">
+      <li class="nav-item "> 
+        <?php if (isset($_SESSION["Userlevel"]) == "M") { 
 
-        echo "<b class='fa text-primary nav-link' >".$_SESSION["User"]."</b>";
-      }else{ }?>
+          echo "<b class='fa text-primary nav-link' >".$_SESSION["User"]."</b>";
+        }else{ }?>
 
-    </li>
-    <li class="nav-item">  
-      <?php
+      </li>
+      <li class="nav-item">  
+        <?php
 
-      if (isset($_SESSION["Userlevel"]) == "M") {
-        echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>";
+        if (isset($_SESSION["Userlevel"]) == "M") {
+          echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>";
 
-      }else{   ?>
+        }else{   ?>
 
 
 <!--               <form class="form-inline" action="login_db.php"> 

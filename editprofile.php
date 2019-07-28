@@ -3,9 +3,14 @@
 <html>
 
 <?php include 'header.php'; ?>
+<?php include 'conn.php';  ?>
  <div class="container">
   <div class="row">
-    <?php include 'menu.php'; ?>
+     <div class="col-md-12">
+      <?php include 'carousel.php'; ?>
+      <?php include 'navbar.php'; ?>
+      <?php include 'model.php'; ?>
+
 
     <?php 
     include('conn.php'); 

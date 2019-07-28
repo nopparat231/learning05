@@ -21,5 +21,3 @@
 
 <body>
 
- <?php include 'carousel.php'; ?>
- <?php include 'navbar.php'; ?>

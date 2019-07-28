@@ -23,15 +23,23 @@ if (isset($_SESSION["UserID"])) {
 <div class="py-2">
   <div class="container">
    <div class="row">
-    <?php
-    $regis = isset($_GET['register']);
-    $learning = isset($_GET['learning']);
+    <div class="col-md-12">
 
-    if ($regis <> ''): ?>
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-7 text-center ">
-        <?php include 'register.php'; ?>
+     <?php include 'carousel.php'; ?>
+     <?php include 'navbar.php'; ?>
+    
+     <?php
+     $regis = isset($_GET['register']);
+     $learning = isset($_GET['learning']);
+
+     if ($regis <> ''): ?>
+       <div class="row">
+
+           <div class="col-md-2"></div>
+        <div class="col-md-8 text-center ">
+          <?php include 'register.php'; ?>
+        </div>
+          <div class="col-md-2"></div>
       </div>
       <?php elseif ($learning <> ''): ?>
         <div class="col-md-12">
@@ -65,43 +73,43 @@ if (isset($_SESSION["UserID"])) {
 
         <?php endif ?>
 
-
       </div>
     </div>
   </div>
-  <?php include 'footer.php'; ?>
+</div>
+<?php include 'footer.php'; ?>
 
 
-  </html>
+</html>
 
 
-  <script type="text/javascript">
+<script type="text/javascript">
 
-    function validate() {
-      var element = document.getElementById('input-field');
-      element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
-    };
+  function validate() {
+    var element = document.getElementById('input-field');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  };
 
-    function num() {
-      var element = document.getElementById('input-num');
-      element.value = element.value.replace(/[^0-9]+/, '');
-    };
+  function num() {
+    var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
 
-    function user() {
-      var element = document.getElementById('input-user');
-      element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
-    };
-  </script>
+  function user() {
+    var element = document.getElementById('input-user');
+    element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
+  };
+</script>
 
-  <script type="text/javascript">
-    function checkPasswordMatch() {
-      var password = $("#txtNewPassword").val();
-      var confirmPassword = $("#txtConfirmPassword").val();
-      if (password != confirmPassword)
-        $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
-      else
-        $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
-    }
+<script type="text/javascript">
+  function checkPasswordMatch() {
+    var password = $("#txtNewPassword").val();
+    var confirmPassword = $("#txtConfirmPassword").val();
+    if (password != confirmPassword)
+      $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
+    else
+      $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
+  }
 
           /*
   jQuery document ready.
