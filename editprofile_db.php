@@ -13,7 +13,7 @@ include('conn.php');  //ไฟล์เชื่อมต่อกับ databas
 $Firstname = $_REQUEST["Firstname"];
 $Lastname = $_REQUEST["Lastname"];
 
-
+$Password = $_REQUEST["Password"];
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $id = $_REQUEST["id"];
@@ -24,6 +24,7 @@ $sql ="UPDATE user SET
 
 Firstname='$Firstname',
 Lastname='$Lastname',
+Password='$Password',
 email='$email',
 phone='$phone'
 WHERE id=$id

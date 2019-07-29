@@ -9,20 +9,21 @@ if(session_status() == PHP_SESSION_NONE){
 <?php include '../check.php'; ?>
 <!DOCTYPE html>
 <html>
-
+<?php include '../conn.php'; ?>
 <?php include 'header.php'; ?>
 
 
 <div class="py-2">
   <div class="container">
     <div class="row">
+      <div class="col-md-12">
 
-      <?php //include 'menu.php'; ?>
-      <?php include '../conn.php'; ?>
+       <?php include 'carousel.php'; ?>
+       <?php include 'navbar.php'; ?>
 
-      <?php include 'datatables.php'; ?>
+       <?php include 'datatables.php'; ?>
 
-      <body>
+       <body>
 
         <?php 
 
@@ -31,7 +32,7 @@ if(session_status() == PHP_SESSION_NONE){
         $shs = isset($_REQUEST['showchoice_s']);
         $sp = isset($_REQUEST['sp']);
         $ep = isset($_REQUEST['ep']);
-        $pw = isset($_REQUEST['pw']);
+        $editc = isset($_REQUEST['editc']);
         $su = isset($_REQUEST['su']);
         $anw = isset($_REQUEST['anw']);
         $anws = isset($_REQUEST['anws']);
@@ -50,8 +51,8 @@ if(session_status() == PHP_SESSION_NONE){
           include 'editprofile_show.php';
         }elseif ($ep <> '') {
           include 'editprofile.php';
-        }elseif ($pw <> '') {
-          include 'edit_password.php';
+        }elseif ($editc <> '') {
+           include 'show_choice_all.php';
         }elseif ($su <> '') {
           include 'show_user.php';
         }elseif ($anw <> '') {
@@ -67,12 +68,17 @@ if(session_status() == PHP_SESSION_NONE){
         }else{ ?>
 
 
+          <div class="row">
 
-          <div class="col-md-9" align="center">
-            <img src="../img/img47.jpg">
-            <br>
-            <br>
+            <div class="col-md-12" align="center">
+              <?php include 'index_scoreall.php'; ?>
+              <br>
+              <br>
+            </div>
+
+
           </div>
+
 
 
           <?php

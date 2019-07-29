@@ -11,57 +11,51 @@
      <b><font color="blue">หน้าหลัก</font></b>
    </a>
 
-   <?php if (isset($_SESSION["Userlevel"]) == "A") { ?>
+   <?php if (isset($_SESSION["Userlevel"]) == "A") {
+ //echo "<b class='fa text-primary nav-link' >".$_SESSION["User"]."</b>";
+    ?>
     <?php $user_id=$_SESSION['UserID']; ?>
     <ul class="navbar-nav">
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ข้อมูลผู้ใช้งาน
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-         <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
-         <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
-         <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
-       </div>
+      <li class="nav-item"> <a class="nav-link" href="index.php?su">จัดการข้อมูลผู้ใช้</a> </li>
+      <li class="nav-item"> <a class="nav-link" href="index.php?sc">จัดการแบบทดสอบ</a> </li>
 
-     </li>
 
-     <li class="nav-item"> <a class="nav-link" href="scoreall.php">คะแนนผู้ใช้งานทั้งหมด</a> </li>
-
-   </ul>
- <?php }else{ ?>
-
-  <ul class="navbar-nav mx-auto">
-    <li class="nav-item"> 
-      <a class="nav-link" href="#">test</a> </li>
-      <li class="nav-item dropdown"> 
-        ttt
-      </li>
     </ul>
+  <?php }else{ ?>
 
-  <?php }?>
-  <style type="text/css">
-    .ml-auto {
-      left: auto !important;
-      right: 0px;
-    }
-  </style>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">  
-      <?php
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item"> 
+        <a class="nav-link" href="#"></a> </li>
+        <li class="nav-item dropdown"> 
+          ttt
+        </li>
+      </ul>
 
-      if (isset($_SESSION["Userlevel"]) == "A") {
-        echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>";
-
+    <?php }?>
+    <style type="text/css">
+      .ml-auto {
+        left: auto !important;
+        right: 0px;
       }
-      ?> 
+    </style>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">  
+        <?php
 
-    </li>
-  </ul>
+        if (isset($_SESSION["Userlevel"]) == "A") { ?>
+
+         <a class='fa text-primary nav-link' ><?php echo $_SESSION["User"]; ?></a>
+       </li>
+       <li class="nav-item">  
+         <?php echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>"; }
+         ?> 
+
+       </li>
+     </ul>
 
 
-</div>
-</div>
+   </div>
+ </div>
 </nav>
 <?php// include '../resetpassword.php'; ?>

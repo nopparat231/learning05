@@ -27,7 +27,7 @@ if (isset($_SESSION["UserID"])) {
 
      <?php include 'carousel.php'; ?>
      <?php include 'navbar.php'; ?>
-    
+     
      <?php
      $regis = isset($_GET['register']);
      $learning = isset($_GET['learning']);
@@ -35,18 +35,18 @@ if (isset($_SESSION["UserID"])) {
      if ($regis <> ''): ?>
        <div class="row">
 
-           <div class="col-md-2"></div>
-        <div class="col-md-8 text-center ">
+         <div class="col-md-2"></div>
+         <div class="col-md-8 text-center ">
           <?php include 'register.php'; ?>
         </div>
-          <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
       </div>
       <?php elseif ($learning <> ''): ?>
         <div class="col-md-12">
           <?php include 'index1.php'; ?>
         </div>
         <?php else: ?>
-
+          <br>
           <div class="col-md-12" style="text-align: center;"> <!-- ใส่วิดีโอตัวอย่าง -->
 
             <div class="embed-responsive embed-responsive-16by9">

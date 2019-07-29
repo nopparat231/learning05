@@ -20,13 +20,3 @@
 </head>
 
 <body>
-
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" >
-         <?php include 'navbar.php'; ?>
-      
-       </div>
-     </div>
-   </div>

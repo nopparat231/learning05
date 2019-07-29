@@ -29,7 +29,7 @@ $totalRows_user = mysqli_num_rows($user);
 				<div class="col-md-12">
 					<div class="table-responsive text-center">
 
-						<table class="display" id="example">
+						<table class="table table-striped table-bordered" id="example">
 							<?php if ($totalRows_user > 0) {?>
 
 								<thead>

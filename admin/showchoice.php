@@ -35,7 +35,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 
 
           <a href="showchoice.php" class="btn btn-outline-success my-2 my-sm-0" data-toggle='modal' data-target='#addchoiceModal'>เพิ่มหมวดหมู่</a>
-          <table class="display" id="example">
+          <table class="table table-striped table-bordered" id="example">
            <?php if ($totalRows_learning > 0) {?>
 
             <thead>

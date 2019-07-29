@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php //session_start();?>
 <?php include 'conn.php';  ?>
 <?php 
 
@@ -11,28 +11,19 @@ $num = mysqli_fetch_assoc($result);
 
 ?>
 <body>
-  <?php include 'header.php'; ?>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <?php include 'carousel.php'; ?>
-        <?php include 'navbar.php'; ?>
-        <?php include 'model.php'; ?>
-
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10 text-center ">
-
-           <div class="py-2">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <h1 class="text-center"><b>แก้ไขข้อมูล</b></h1>
-                  <hr>
-                </div>
+<div class="col-md-1"></div>
+        <div class="col-md-10">
+         <div class="py-2">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="text-center"><b>แก้ไขข้อมูล</b></h1>
+                <hr>
               </div>
             </div>
           </div>
+        </div>
+
           <div class="py-1">
             <div class="container text-center ">
               <div class="row">
@@ -94,7 +85,7 @@ $num = mysqli_fetch_assoc($result);
                        <td></td>
                       <td></td>
                        <td> 
-                        <a class="btn btn-warning text-light" href="editprofile.php?eu&user_id=<?php echo $_SESSION["UserID"]; ?>" >แก้ไข</a>
+                        <a class="btn btn-outline-info" href="editprofile.php?eu&user_id=<?php echo $_SESSION["UserID"]; ?>" >แก้ไข</a>
                        </td>
                      
                     </tr>
@@ -114,13 +105,6 @@ $num = mysqli_fetch_assoc($result);
         <div class="col-md-1"></div>
       </div>
     </div>
-
+<div class="col-md-1"></div>
   </div>
   <!-- new -->
-  <div class="col-md-1"></div>
-</div>
-</div>
-</div>
-</div>
-</body>
-<?php include 'footer.php'; ?>

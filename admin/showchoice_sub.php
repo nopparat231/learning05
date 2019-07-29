@@ -25,7 +25,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 ?>
 
 
-<div class="col-md-9">
+<div class="col-md-12">
  <div class="py-2">
   <div class="container">
     <div class="row">
@@ -42,7 +42,7 @@ $totalRows_learning = mysqli_num_rows($learning);
   <P style="text-align: right;">
     <a href="showchoice_sub.php" class="btn btn-outline-success my-2 my-sm-0"  data-toggle='modal' data-target='#addchoicesubModal'>เพิ่มคำถาม</a></P>
 
-    <table class="display" id="example">
+    <table class="table table-striped table-bordered" id="example">
      <?php if ($totalRows_learning > 0) {?>
 
       <thead>
