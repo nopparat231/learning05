@@ -42,7 +42,7 @@
 
   /* When the radio button is checked, add a blue background */
   .containerr input:checked ~ .checkmark {
-    background-color: #FE7452;
+    background-color: #F1B3FF;
   }
 
   /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -74,7 +74,7 @@
 $choice_id = $_REQUEST['choice_id'];
 $user_id = $_REQUEST['user_id'];
 
-$sql="SELECT * From testing WHERE choice_id = '$choice_id' and status <> 1 order by rand() limit 21";
+$sql="SELECT * From testing WHERE choice_id = '$choice_id' and status <> 1 order by rand() limit 11";
 $db_query=mysqli_query($con,$sql) or die(mysqli_error());
 $result=mysqli_fetch_array($db_query);
 
@@ -148,7 +148,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="containerr"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" required checked>
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required>
                   <span class="checkmark"></span></h5>
                 </label>
 
@@ -237,12 +237,12 @@ function bf(){
   $line = $_REQUEST['line']+1;
   for ($i=1; $i < $line; $i++) { 
 
-    $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
-     $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
+    // $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
+    //  $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
 
 
-     $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$aabff' )";
-     $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+    //  $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$aabff' )";
+    //  $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
 
 
      if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
@@ -303,24 +303,24 @@ function bf(){
     $user_learning_cff = $_REQUEST['cff'];
     $score = 0;
 
-    if ($user_learning_cff == 'cff') {
-      $del = "DELETE FROM user_testing WHERE user_bf = 'af' AND user_id = '$user_id'";
-      $delq = mysqli_query($con, $del) or die ("Error in query: $del " . mysqli_error());
-    }
+    // if ($user_learning_cff == 'cff') {
+    //   $del = "DELETE FROM user_testing WHERE user_bf = 'af' AND user_id = '$user_id'";
+    //   $delq = mysqli_query($con, $del) or die ("Error in query: $del " . mysqli_error());
+    // }
     $line = $_REQUEST['line']+1;
     for ($i=1; $i < $line; $i++) { 
 
-      $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
-      $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
+     //  $cn =$_REQUEST["c$i"]; //ข้อที่ตอบ
+     //  $testing_id = $_REQUEST["id$i"]; //ข้อที่เท่าไหร่
 
-      if ($user_learning_cff == 'cff') {
+     //  if ($user_learning_cff == 'cff') {
 
-        $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$user_learning_af' )";
-        $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
-      }else{
-       $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$user_learning_af' )";
-       $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
-     }
+     //    $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$user_learning_af' )";
+     //    $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+     //  }else{
+     //   $save = "INSERT INTO user_testing (testing_id , user_id , user_anw , user_bf) VALUES ( '$testing_id' , '$user_id' , '$cn' , '$user_learning_af' )";
+     //   $resultsave = mysqli_query($con, $save) or die ("Error in query: $save " . mysqli_error());
+     // }
      
 
      if($_REQUEST["c$i"] == $_REQUEST["answer$i"])

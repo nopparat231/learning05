@@ -8,7 +8,7 @@
 
   <title>สื่อแอนิเมชั่น</title>
   <!-- <link rel="icon" href="./img/5.png" /> -->
-  <link rel="shortcut icon" href="./img/img47.jpg" />
+  <link rel="shortcut icon" href="../img/mortarboard.png" />
   <style type="text/css">
     body {
       background-image: url("../img/email-pattern.png");

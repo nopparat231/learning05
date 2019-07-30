@@ -1,4 +1,5 @@
 <?php session_start();?>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <?php
 
 include("conn.php");
@@ -34,7 +35,7 @@ if(!$objResult)
 }
 elseif($objResultchecklav > 0)
 {
-  echo "<script>";
+  echo '<script charset="UTF-8">';
   echo "alert(\" User ของท่านถูกระงับการใช้งาน\");"; 
   echo "window.location ='logout.php';";
   echo "</script>";
@@ -42,7 +43,7 @@ elseif($objResultchecklav > 0)
 }
 elseif($objResultcheckdate > 0)
 {
-  echo "<script>";
+  echo '<script charset="UTF-8">';
   echo "alert(\" User ของท่านหมดอายุการใช้งาน\");"; 
   echo "window.location ='logout.php';";
   echo "</script>";
@@ -72,7 +73,7 @@ elseif($objResultcheck > 0)
 
 }else{
 
-  echo "<script>";
+  echo '<script charset="UTF-8">';
   echo "alert(\" กรุณายืนยัน User ที่ E-mail ที่ท่านสมัคร\");"; 
   echo "window.history.back()";
   echo "</script>";
