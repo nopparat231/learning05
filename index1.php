@@ -44,7 +44,7 @@ if(session_status() == PHP_SESSION_NONE){
         </div>
         <?php else: ?>
 
-          <div class="row" align="left">
+          <div class="row" align="center">
             <div class="col-md-12">
 
 

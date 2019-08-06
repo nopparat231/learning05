@@ -28,7 +28,7 @@ if (isset($_GET['choice_id'])) {
 <body>
 
   <form action="edit_choice_db.php" method="post">
-    <div class="modal fade" style="" id="editchoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" style="" id="editchoiceModal" tabindex="-1" role="dialog" aria-labelledby="editchoiceModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">

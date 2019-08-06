@@ -27,7 +27,7 @@ $totalRows_user = mysqli_num_rows($user);
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="table-responsive text-center">
+					<div class="table table-hover">
 
 						<table class="table table-striped table-bordered" id="example">
 							<?php if ($totalRows_user > 0) {?>

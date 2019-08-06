@@ -1,5 +1,6 @@
 
 <?php 
+date_default_timezone_set('Asia/Bangkok');
 
 $query_user = "SELECT * FROM user";
 $user = mysqli_query($con,$query_user) or die(mysqli_error());
@@ -28,15 +29,15 @@ $totalRows_user = mysqli_num_rows($user);
 			<div class="row">
 				<div class="col-md-12">
 					<div class="table-responsive text-center">
-					
-						<table class="table table-striped table-bordered" id="example">
-							<?php if ($totalRows_user > 0) {?>
+						<?php if ($totalRows_user > 0) {?>
+						<table class="table table-hover" id="example" bgcolor="white">
+						
 
-								<thead>
+								<thead class="thead-dark">
 									<tr class="text-center">
 										<th scope="col" width="5">ลำดับ</th>
 										<th scope="col">ชื่อผู้ใช้</th>
-										<th scope="col">ชื่อ  - สกุล</th>
+										<th scope="col">ชื่อ - สกุล</th>
 										<th scope="col">ข้อมูลติดต่อ</th>
 										<th scope="col">วันหมดอายุ</th>
 										<th scope="col">สถานะ</th>
@@ -117,3 +118,4 @@ $totalRows_user = mysqli_num_rows($user);
 		</div>
 	</div>
 
+<br><br><br><br><br><br><br><br><br><br>
