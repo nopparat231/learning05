@@ -51,7 +51,7 @@ $totalRows_learning = mysqli_num_rows($learning);
                 <div class="table-responsive text-center">
                   <?php if ($totalRows_learning > 0) {?>
                     <table class="table table-hover" id="example" bgcolor="white">
-                      
+
 
                       <thead class="thead-dark">
                         <tr class="text-center">
@@ -119,6 +119,6 @@ $totalRows_learning = mysqli_num_rows($learning);
    color: white;
    text-align: center;
  }
-</style> --><br><br><br><br><br><br><br><br><br><br>
+</style> --><br><br><br><br><br><br><br><br>
 <?php include 'footer.php'; ?>
 </html>

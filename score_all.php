@@ -114,6 +114,6 @@ $totalRows_learning = mysqli_num_rows($learning);
    color: white;
    text-align: center;
  }
-</style> --><br><br><br><br><br><br><br><br><br><br>
+</style> --><br><br><br><br><br><br><br><br>
 <?php include 'footer.php'; ?>
 </html>
