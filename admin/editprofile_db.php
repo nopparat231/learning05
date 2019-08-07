@@ -9,25 +9,30 @@
 <?php
 include('../conn.php');   //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 
-	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
+//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
 $Firstname = $_REQUEST["Firstname"];
 $Lastname = $_REQUEST["Lastname"];
 
-
+$Password = $_REQUEST["Password"];
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $id = $_REQUEST["id"];
+$stid = $_REQUEST["stid"];
+$Userlevel = $_REQUEST["Userlevel"];
 
 
 
 $sql ="UPDATE user SET 
-
 Firstname='$Firstname',
 Lastname='$Lastname',
+Password='$Password',
 email='$email',
+user_stid='$stid',
+Userlevel='$Userlevel',
 phone='$phone'
 WHERE id=$id
 ";
+
 
 $result = mysqli_query($con,$sql) or die("Error in query : $sql" .mysqli_error());
 
@@ -39,7 +44,7 @@ mysqli_close($con);
 
 	<script type="text/javascript">
 
-		var $ws = 'index.php?sp&user_id=<?php echo $id ?>';
+		var $ws = 'index.php?ep&user_id=<?php echo $id ?>';
 
 		setTimeout(function () { 
 			swal({
@@ -62,7 +67,7 @@ mysqli_close($con);
 
 		<script type="text/javascript">
 
-			var $ws = 'index.php?sp&user_id=<?php echo $id ?>';
+			var $ws = 'index.php?ep&user_id=<?php echo $id ?>';
 
 			setTimeout(function () { 
 				swal({

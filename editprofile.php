@@ -16,7 +16,7 @@
     include('conn.php'); 
     $user_id = $_GET['user_id'];
     $eu = isset($_REQUEST['eu']);
-    if ($eu == ''): ?>
+    if ($eu <> ''): ?>
 
       <?php include 'editprofile_show.php'; ?>
       <?php else: ?>
@@ -77,19 +77,20 @@
                    <tr>
                      <td>ชื่อผู้ใช้</td>
                      <td>
-                      <input type="text" class="form-control" readonly  value="<?php echo($num['Firstname'])?>">
+                      <input type="text" class="form-control" readonly  value="<?php echo($num['Username'])?>">
                     </td>
                     <td></td>
                     <td>รหัสผ่าน</td>
                     <td>
-                      <input type="password" name="Password" class="form-control"  value="<?php echo($num['Password'])?>">
+                      <input type="password" name="Password" class="form-control" required  value="<?php echo($num['Password'])?>">
                     </td>
                   </tr>
                   <input type="hidden" name="id" value="<?php echo($num['ID'])?>">
                   <tr>
                     <td>รหัสประจำตัวนักเรียน</td>
                     <td>
-                      <input type="number" class="form-control" readonly  value="321555462">
+                      <input type="text" class="form-control" id="input-num-id" name="stid" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" minlength="10" required="required"  value="<?php echo($num['user_stid'])?>" 
+                      onkeyup="numid();">
                     </td>
                     <td></td>
                     <td></td>
@@ -99,31 +100,41 @@
 
                 </tbody>
                 <tfoot>
-                  <tr> 
+                 <tr> 
                    <td></td>
                    <td></td>
                    <td> 
-                     <button name="btn" class="btn btn-outline-success" >ยืนยัน</button>
+                     &nbsp; 
                    </td>
                    <td> 
-                    <a class="btn btn-outline-danger" href="editprofile.php?user_id=<?php echo $_SESSION["UserID"]; ?>">ยกเลิก</a>
+                    &nbsp; 
                   </td>
                 </tr>
-              </tfoot>
+                <tr> 
+                 <td></td>
+                 <td></td>
+                 <td> 
+                   <button name="btn" class="btn btn-outline-success" >ยืนยัน</button>
+                 </td>
+                 <td> 
+                  <a class="btn btn-outline-danger" href="index1.php">ยกเลิก</a>
+                </td>
+              </tr>
+            </tfoot>
 
-            </table>
+          </table>
 
-            <!-- DivTable.com -->
-          </form>
-
-        </div>
-
-
+          <!-- DivTable.com -->
+        </form>
 
       </div>
+
+
+
     </div>
-    <div class="col-md-1"></div>
   </div>
+  <div class="col-md-1"></div>
+</div>
 
 
 
@@ -148,7 +159,7 @@ if ($eu == ''): ?>
      }
    </style>
  <?php endif ?>
-<br><br><br><br><br><br>
+ <br><br><br><br><br><br>
  <?php include 'footer.php'; ?>
 
 
@@ -163,6 +174,11 @@ if ($eu == ''): ?>
 
   function num() {
     var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+
+  function numid() {
+    var element = document.getElementById('input-num-id');
     element.value = element.value.replace(/[^0-9]+/, '');
   };
 

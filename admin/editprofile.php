@@ -1,112 +1,212 @@
+<?php //session_start();?>
+<!DOCTYPE html>
+<html>
 
-<?php 
 
-$user_id = $_GET['user_id'];
 
-$check = "SELECT * FROM user WHERE id = $user_id ";
-$result = mysqli_query($con,$check) or die(mysqli_error());
-$num = mysqli_fetch_assoc($result);
+<div class="container">
+  <div class="row">
+   <div class="col-md-12">
 
-?>
-<div class="col-md-9">
- <div class="py-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="text-center"><b>แก้ไขข้อมูล</b></h1>
-        <hr>
+    <?php 
+
+    $user_id = $_GET['user_id'];
+    $eu = isset($_REQUEST['eu']);
+
+
+    $check = "SELECT * FROM user WHERE id = $user_id ";
+    $result = mysqli_query($con,$check) or die(mysqli_error());
+    $num = mysqli_fetch_assoc($result);
+    ?>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+     <div class="py-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center"><b>แก้ไขข้อมูล</b></h1>
+            <hr>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="py-1">
+
+      <div class="container text-center ">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <form class="form-inline" id="c_form-h" action="editprofile_db.php" method="post" >
+              <table border="0">
+               <tbody>
+                <tr>
+                  <td>ชื่อ</td>
+                  <td>
+                    <input type="text" name="Firstname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ"  value="<?php echo($num['Firstname'])?>" onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น">
+                  </td>
+
+                  <td></td>
+                  <td>นามสกุล</td>
+                  <td>
+                    <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" value="<?php echo($num['Lastname'])?>"  onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น">
+                  </td>
+                </tr>
+                <tr>
+                  <td>อีเมล์</td>
+                  <td>
+                   <input type="email" name="email" class="form-control" id="inputmailh" required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์"  value="<?php echo($num['email'])?>">
+                 </td>
+                 <td></td>
+                 <td>เบอร์โทร</td>
+                 <td>
+                   <input name="phone" class="form-control" id="input-num" required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" value="<?php echo($num['phone'])?>" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                   type="tel"
+                   maxlength = "10" onkeyup="num();">
+                 </td>
+               </tr>
+
+               <tr>
+                 <td>ชื่อผู้ใช้</td>
+                 <td>
+                  <input type="text" class="form-control" readonly  value="<?php echo($num['Username'])?>">
+                </td>
+                <td></td>
+                <td>รหัสผ่าน</td>
+                <td>
+                  <input type="password" name="Password" class="form-control" required  value="<?php echo($num['Password'])?>">
+                </td>
+              </tr>
+              <input type="hidden" name="id" value="<?php echo($num['ID'])?>">
+              <tr>
+
+
+                <td>รหัสประจำตัว</td>
+                <td>
+                  <input type="text" class="form-control" id="input-num-id" name="stid" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" minlength="10" required="required"  value="<?php echo($num['user_stid'])?>" 
+                  onkeyup="numid();">
+                </td>
+                <td></td>
+
+                <td>ประเภท</td>
+                <td>
+                  <?php 
+                  $m = '';
+                  $a = '';
+                  $e = '';
+                  if ($num['Userlevel'] == 'A' ){
+                    $a = 'selected';
+                  }elseif ($num['Userlevel'] == 'M') {
+                    $m = 'selected';
+                  }elseif ($num['Userlevel'] == 'E') {
+                    $e = 'selected';
+                  }
+                  ?>
+                  <select class="custom-select" name="Userlevel" style="width: 210px">
+                   <option <?php echo $a; ?> value="A">ครู</option>
+                   <option <?php echo $m; ?> value="M">นักเรียน</option>
+                   <option <?php echo $e; ?> value="M">ยกเลิก</option>
+
+                 </select></td>
+              </tr>
+
+
+           </tbody>
+           <tfoot>
+             <tr> 
+             <td></td>
+             <td></td>
+             <td> 
+               &nbsp; 
+             </td>
+             <td> 
+              &nbsp; 
+            </td>
+          </tr>
+            <tr> 
+             <td></td>
+             <td></td>
+             <td> 
+               <button name="btn" class="btn btn-outline-success" >ยืนยัน</button>
+             </td>
+             <td> 
+              <a class="btn btn-outline-danger" href="index.php">ยกเลิก</a>
+            </td>
+          </tr>
+        </tfoot>
+
+      </table>
+
+      <!-- DivTable.com -->
+    </form>
+
   </div>
+
+
+
 </div>
-<div class="py-1">
-  <div class="container w-46">
-    <div class="row">
-      <div class="text-left col-md-12" style="">
-        <form class="" id="c_form-h" action="editprofile_db.php" method="post" >
-          <div class="form-group row">
-            <label class="col-2">ชื่อผู้ใช้</label>
-            <div class="col-10">
-              <div class="input-group">
-                <?php echo($num['Username'])?></div>
-              </div>
-            </div>
-
-            <div class="form-group row"><label class="col-2">ชื่อ</label>
-              <div class="col-10">
-                <div class="input-group">
-                  <input type="text" name="Firstname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ"  value="<?php echo($num['Firstname'])?>" onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
-                </div>
-              </div>
-              <div class="form-group row"><label class="col-2">นามสกุล</label>
-                <div class="col-10">
-                  <div class="input-group">
-                    <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" value="<?php echo($num['Lastname'])?>"  onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
-                  </div>
-                </div>
-                <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">อีเมล์</label>
-                  <div class="col-10">
-                    <input type="email" name="email" class="form-control" id="inputmailh" required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์"  value="<?php echo($num['email'])?>"> </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-2">เบอร์โทร<br></label>
-                    <div class="col-10">
-                      <div class="input-group">
-                        <input name="phone" class="form-control" id="input-num" required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" value="<?php echo($num['phone'])?>" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        type="tel"
-                        maxlength = "10" onkeyup="num();"></div>
-                      </div>
-                    </div>
-
-                    <input type="hidden" name="id" value="<?php echo($num['ID'])?>">
-
-                    <div class="py-3">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-md-12 text-center">
-                            <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
-
-                            <a class="btn btn-danger text-light mx-1" href="index.php?sp&user_id=<?php echo $_SESSION["UserID"]; ?>">ยกเลิก</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+</div>
+<div class="col-md-1"></div>
+</div>
 
 
-        <script type="text/javascript">
 
-          function validate() {
-            var element = document.getElementById('input-field');
-            element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
-          };
+</div>
+<div class="col-md-1"></div>
+</div>
 
-          function num() {
-            var element = document.getElementById('input-num');
-            element.value = element.value.replace(/[^0-9]+/, '');
-          };
+</div> 
+</div>
+<?php
 
-          function user() {
-            var element = document.getElementById('input-user');
-            element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
-          };
-        </script>
+if ($eu == ''): ?>
 
-        <script type="text/javascript">
-          function checkPasswordMatch() {
-            var password = $("#txtNewPassword").val();
-            var confirmPassword = $("#txtConfirmPassword").val();
-            if (password != confirmPassword)
-              $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
-            else
-              $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
-          }
+  <?php else: ?>
+    <style>
+      .footer {
+       position: fixed;
+       bottom: 0;
+       width: 100%;
+       color: white;
+       text-align: center;
+     }
+   </style>
+ <?php endif ?>
+ <br><br><br><br><br><br>
+
+ </html>
+
+ <script type="text/javascript">
+
+  function validate() {
+    var element = document.getElementById('input-field');
+    element.value = element.value.replace(/[^a-zA-Zก-๙ @]+/, '');
+  };
+
+  function num() {
+    var element = document.getElementById('input-num');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+
+  function numid() {
+    var element = document.getElementById('input-num-id');
+    element.value = element.value.replace(/[^0-9]+/, '');
+  };
+
+  function user() {
+    var element = document.getElementById('input-user');
+    element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
+  };
+</script>
+
+<script type="text/javascript">
+  function checkPasswordMatch() {
+    var password = $("#txtNewPassword").val();
+    var confirmPassword = $("#txtConfirmPassword").val();
+    if (password != confirmPassword)
+      $("#divCheckPasswordMatch").html("รหัสผ่านไม่ตรงกัน!");
+    else
+      $("#divCheckPasswordMatch").html("รหัสผ่านตรงกัน");
+  }
 
           /*
   jQuery document ready.

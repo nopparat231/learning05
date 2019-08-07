@@ -26,8 +26,8 @@ $totalRows_learning = mysqli_num_rows($learning);
       <div class="col-md-12">
         <?php if ($totalRows_learning > 0) {?>
          <div class="table-responsive text-center">
-          <table class="table table-striped table-bordered" id="example">
-            <thead>
+          <table class="table table-hover" id="example" bgcolor="white">
+            <thead class="thead-dark">
               <tr class="text-center">
                 <th scope="col">ลำดับที่</th>
                 <th scope="col">วันที่</th>

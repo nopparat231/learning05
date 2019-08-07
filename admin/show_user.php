@@ -77,7 +77,7 @@ $totalRows_user = mysqli_num_rows($user);
 
 
 											<td>
-												<a href="index.php?eu&user_id=<?php echo $row_user['ID'];?>" class="btn btn-outline-warning my-2 my-sm-0" >แก้ไข</a>
+												<a href="index.php?ep&user_id=<?php echo $row_user['ID'];?>" class="btn btn-outline-warning my-2 my-sm-0" >แก้ไข</a>
 											</td>
 
 											<?php if ($row_user['Userlevel'] <> 'E' ): ?>

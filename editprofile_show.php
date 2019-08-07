@@ -29,7 +29,7 @@ $num = mysqli_fetch_assoc($result);
               <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                  <form class="form-inline" id="c_form-h" action="editprofile_db.php" method="post" >
+                  <form >
                     <table border="0">
                      <tbody>
                       <tr>
@@ -59,7 +59,7 @@ $num = mysqli_fetch_assoc($result);
                       <tr>
                        <td>ชื่อผู้ใช้</td>
                        <td>
-                        <input type="text" class="form-control" readonly  value="<?php echo($num['Firstname'])?>">
+                        <input type="text" class="form-control" readonly  value="<?php echo($num['Username'])?>">
                       </td>
                       <td></td>
                       <td>รหัสผ่าน</td>
@@ -71,7 +71,7 @@ $num = mysqli_fetch_assoc($result);
                     <tr>
                       <td>รหัสประจำตัวนักเรียน</td>
                       <td>
-                        <input type="number" class="form-control" readonly  value="321555462">
+                        <input type="number" class="form-control" name="stid" readonly  maxlength="10" minlength="10" required  value="<?php echo($num['user_stid'])?>">
                       </td>
                       <td></td>
                       <td></td>
