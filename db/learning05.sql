@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2019 at 05:06 PM
+-- Generation Time: Aug 07, 2019 at 07:22 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `learning04`
+-- Database: `learning05`
 --
 
 -- --------------------------------------------------------
@@ -133,6 +133,7 @@ CREATE TABLE `user` (
   `phone` text NOT NULL,
   `Userlevel` varchar(1) NOT NULL,
   `user_date` date NOT NULL,
+  `user_stid` int(11) NOT NULL,
   `session_id` varchar(50) NOT NULL,
   `Status` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -141,10 +142,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`ID`, `Username`, `Password`, `Firstname`, `Lastname`, `email`, `phone`, `Userlevel`, `user_date`, `session_id`, `Status`) VALUES
-(48, 'user', 'Aa123456', 'ทดสอบ', 'User', 'User@gmail.com', '8888888888', 'M', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
-(44, 'admin', 'Aa123456', 'ทดสอบ', 'GGMM', 'admin@gmail.com', '8888888888', 'A', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
-(47, 'user1', 'Aa1234561', 'User1', 'User', 'User@gmail.com', '8888888888', 'E', '2020-03-31', 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y');
+INSERT INTO `user` (`ID`, `Username`, `Password`, `Firstname`, `Lastname`, `email`, `phone`, `Userlevel`, `user_date`, `user_stid`, `session_id`, `Status`) VALUES
+(48, 'user', 'Aa123456', 'ทดสอบ', 'User', 'User@gmail.com', '0834565129', 'M', '2020-03-31', 2123332222, 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
+(44, 'admin', 'Aa123456', 'ทดสอบ', 'GGMM', 'admin@gmail.com', '8888888888', 'A', '2020-03-31', 0, 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y'),
+(47, 'user1', 'Aa1234561', 'User1', 'User', 'User@gmail.com', '8888888888', 'E', '2020-03-31', 0, 'fdc1e278676cd8877f58ab2b0c3dc5c6', 'Y');
 
 -- --------------------------------------------------------
 
@@ -161,6 +162,13 @@ CREATE TABLE `user_learning` (
   `user_learning_status` int(1) NOT NULL,
   `user_learning_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_learning`
+--
+
+INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`, `user_learning_status`, `user_learning_date`) VALUES
+(84, 1, 48, 1, '3', 0, '2019-08-07 13:25:18');
 
 -- --------------------------------------------------------
 
@@ -238,7 +246,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_learning`
 --
 ALTER TABLE `user_learning`
-  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `user_testing`
