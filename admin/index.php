@@ -38,6 +38,7 @@ if(session_status() == PHP_SESSION_NONE){
         $anw = isset($_REQUEST['anw']);
         $anws = isset($_REQUEST['anws']);
         $eu = isset($_REQUEST['eu']);
+        $ec = isset($_REQUEST['ec']);
         $sc = isset($_REQUEST['sc']);
         $sco = isset($_REQUEST['sco']);
         $send = isset($_REQUEST['send']);
@@ -62,14 +63,18 @@ if(session_status() == PHP_SESSION_NONE){
         include 'show_user_anwshow.php';
       }elseif ($eu <> '') {
         include 'edit_user.php';
+      }elseif ($ec <> '') {
+        include 'edit_choice.php';
       }elseif ($sc <> '' or $sco <> '') { ?>
 
 
-        <?php include 'edit_choice.php'; ?>
+        <?php //include 'edit_choice.php'; ?>
         <?php include 'add_choice.php'; ?>
+        <div id="shoeeditchaioce">          
+        </div>
         <div class="row" align="center">
           <div class="col-md-12">
-
+<!-- <button id="editch">test</button> -->
             <br>
             <a href="index.php.php" class="myButton" data-toggle='modal' data-target='#addchoiceModal'>+</a>
             <br><br>
@@ -133,6 +138,23 @@ if(session_status() == PHP_SESSION_NONE){
 
  <?php endif ?>
  <?php include 'footer_admin.php'; ?>
+
+
+ <script type="text/javascript">
+  $(document).ready(function(){
+
+    $("#editch").click(function(){
+
+      $.post("test_ajx.php", { 
+        data1: $("#cc").val(),
+        function(result){
+          $("#shoeeditchaioce").html(result);
+        }
+        );
+
+    });
+  });
+</script>
 
 </body>
 

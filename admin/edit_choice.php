@@ -1,27 +1,15 @@
 
-<?php include '../conn.php'; ?>
-  <script type="text/javascript">
-
-    //onload show modal script ชุดนี้โหลดมาตรงๆ ไม่มีหน่วงเวลานะ
-    $(document).ready(function(){
-      $("#editchoiceModal").modal('show');
-    });
-    
-
-  </script>
+<?php //include '../conn.php'; ?>
 
 <?php 
 
-if (isset($_GET['choice_id'])) {
-
-  $choice_id = $_GET['choice_id'];
+  $choice_id = $_POST["data1"];
 
   $query_editc = "SELECT * FROM choice where choice_id = $choice_id";
   $editc = mysqli_query($con,$query_editc) or die(mysqli_error());
   $row_editc = mysqli_fetch_assoc($editc);
   $totalRows_editc = mysqli_num_rows($editc);
 
-}
 ?>
 
 
@@ -56,7 +44,7 @@ if (isset($_GET['choice_id'])) {
               <div class="form-group row"> 
                 <label for="inputmailh" class="col-3 col-form-label">รายละเอียด</label>
                 <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="video" name="choice_detail" placeholder="กรุณากรอก URL"  value="<?php echo $row_editc['choice_detail'] ?>"> 
+                  <input type="text" class="form-control"  required="required"  id="videodetail" name="choice_detail" placeholder="กรุณากรอก URL"  value="<?php echo $row_editc['choice_detail'] ?>"> 
                 </div>
               </div>
 
@@ -76,3 +64,6 @@ if (isset($_GET['choice_id'])) {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $('#editchoiceModal').modal('show'); 
+</script>
