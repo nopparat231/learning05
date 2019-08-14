@@ -2,7 +2,7 @@
 
 <body>
 
-  <form action="add_choice_db.php" method="post">
+  <form action="add_choice_db.php" id="upload_form" enctype="multipart/form-data" method="post">
     <div class="modal fade" style="" id="addchoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -21,16 +21,22 @@
               </div>
 
               <div class="form-group row"> 
-                <label for="inputmailh" class="col-3 col-form-label">URL Youtube</label>
+                <label for="inputmailh" class="col-3 col-form-label">เลือกไฟล์ Video</label>
                 <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="video" name="video" placeholder="กรุณากรอก URL"> 
+
+                  <?php include 'up.php'; ?>
+                  <input type="file" name="file1" id="file1">
+
+                  <progress id="progressBar" value="0" max="100" style="width:100%"></progress>
+                  
+
                 </div>
               </div>
 
               <div class="form-group row"> 
                 <label for="inputmailh" class="col-3 col-form-label">รายละเอียด</label>
                 <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="choice_detail" name="choice_detail" placeholder="กรุณากรอก URL" > 
+                  <input type="text" class="form-control"  required="required"  id="choice_detail" name="choice_detail" placeholder="กรุณากรอก รายละเอียด" > 
                 </div>
               </div>
 

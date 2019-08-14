@@ -65,6 +65,7 @@ if(session_status() == PHP_SESSION_NONE){
         include 'edit_user.php';
       }elseif ($ec <> '') {
         include 'edit_choice.php';
+        echo "<br><br><br><br><br><br><br><br>";
       }elseif ($sc <> '' or $sco <> '') { ?>
 
 
@@ -74,7 +75,7 @@ if(session_status() == PHP_SESSION_NONE){
         </div>
         <div class="row" align="center">
           <div class="col-md-12">
-<!-- <button id="editch">test</button> -->
+            <!-- <button id="editch">test</button> -->
             <br>
             <a href="index.php.php" class="myButton" data-toggle='modal' data-target='#addchoiceModal'>+</a>
             <br><br>
@@ -140,21 +141,7 @@ if(session_status() == PHP_SESSION_NONE){
  <?php include 'footer_admin.php'; ?>
 
 
- <script type="text/javascript">
-  $(document).ready(function(){
 
-    $("#editch").click(function(){
-
-      $.post("test_ajx.php", { 
-        data1: $("#cc").val(),
-        function(result){
-          $("#shoeeditchaioce").html(result);
-        }
-        );
-
-    });
-  });
-</script>
 
 </body>
 

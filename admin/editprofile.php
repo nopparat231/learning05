@@ -129,7 +129,7 @@
                <button name="btn" class="btn btn-outline-success" >ยืนยัน</button>
              </td>
              <td> 
-              <a class="btn btn-outline-danger" href="index.php">ยกเลิก</a>
+              <a class="btn btn-outline-danger" href="index.php?su">ยกเลิก</a>
             </td>
           </tr>
         </tfoot>

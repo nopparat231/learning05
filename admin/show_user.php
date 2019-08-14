@@ -58,7 +58,7 @@ $totalRows_user = mysqli_num_rows($user);
 											<td><?php echo $i ?></td>
 											<td><?php echo $row_user['Username']; ?></td>
 											<td><?php echo $row_user['Firstname'] . "  " . $row_user['Lastname']; ?></td>
-											<td><?php echo " เบอร์โทร " . $row_user['phone'] . " <br /> อีเมล์ " . $row_user['email']; ?></td>
+											<td><?php echo " รหัสประจำตัว " . $row_user['user_stid'] . " <br />  " . " เบอร์โทร " . $row_user['phone'] . " <br /> อีเมล์ " . $row_user['email']; ?></td>
 											<td><?php $d = date_create($row_user['user_date']); echo  date_format($d,"d-m-Y"); ?></td>
 											<td>
 												<?php 

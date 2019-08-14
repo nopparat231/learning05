@@ -43,26 +43,76 @@ $totalRows_watch = mysqli_num_rows($watch);
     $totalRows_query3 = mysqli_num_rows($db_query3);
 
 
-    $cff = isset($_GET['cff']);
-    $url = $row_choice['video'];
-    preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
-    $id = $matches[1];
-    $width = '800px';
-    $height = '450px';
 
     ?>
-<!-- เช็คคำถามมากกว่า 11 ถามถึงจะแสดง -->
+    <!-- เช็คคำถามมากกว่า 11 ถามถึงจะแสดง -->
     <?php if ($totalRows_testing > 11){ ?>
-      
+
       <?php if ($totalRows_query3 > 0){ ?>
 
         <?php if ($result3['user_learning_af'] == 'ยังไม่ทำ'){ ?>
 
           <div class="card pmd-card">
             <div class="pmd-card-media">
-              <iframe id="existing-iframe-example" type="text/html" class="img-fluid" width="<?php echo $width ?>" height="<?php echo $height ?>"
-                src="https://www.youtube.com/embed/<?php echo $id ?>?enablejsapi=1&autoplay=0&amp;controls=1&amp;rel=0&amp;fs=0&amp;enablejsapi=1" frameborder="0" style="pointer-events: none;" >
-              </iframe> 
+
+              <video id="video1" width="355" style="pointer-events: none;" >
+                <source src="img/<?php echo $row_choice['video']; ?>" type="video/mp4">
+                  Your browser does not support HTML5 video. กรุณาเปิดใน Google Chrome
+                </video>
+
+
+              </div>
+              <div class="card-body">
+               <!-- Card Title -->
+               <h2 class="card-title"><?php echo $row_choice['choice_name']; ?></h2>
+
+               <!-- Card Text -->
+               <p class="card-text"><h4><?php echo $row_choice['choice_detail']; ?></h4></p>
+
+               <!-- Card Action -->
+               <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><p class="btn btn-xs btn-info" >ทำแบบทดสอบก่อนเรียนแล้ว</p></a>
+             </div>
+           </div>
+
+         <?php }else{ ?>
+
+
+
+          <div class="card pmd-card">
+            <div class="pmd-card-media">
+
+              <video id="video1" width="355" style="pointer-events: none;">
+                <source src="img/<?php echo $row_choice['video']; ?>" type="video/mp4">
+                  Your browser does not support HTML5 video. กรุณาเปิดใน Google Chrome
+                </video>
+
+
+              </div>
+              <div class="card-body">
+               <!-- Card Title -->
+               <h2 class="card-title"><?php echo $row_choice['choice_name']; ?></h2>
+
+               <!-- Card Text -->
+               <p class="card-text"><h4><?php echo $row_choice['choice_detail']; ?></h4></p>
+
+               <!-- Card Action -->
+               <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff"><p class="btn btn-xs btn-danger">ทำแบบทดสอบแล้ว</p></a>
+             </div>
+           </div>
+
+
+         <?php  } ?>
+
+
+       <?php }else{?>
+
+         <div class="card pmd-card">
+          <div class="pmd-card-media">
+
+            <video id="video1" width="355" style="pointer-events: none;">
+              <source src="img/<?php echo $row_choice['video']; ?>" type="video/mp4">
+                Your browser does not support HTML5 video. กรุณาเปิดใน Google Chrome
+              </video>
 
             </div>
             <div class="card-body">
@@ -73,62 +123,14 @@ $totalRows_watch = mysqli_num_rows($watch);
              <p class="card-text"><h4><?php echo $row_choice['choice_detail']; ?></h4></p>
 
              <!-- Card Action -->
-             <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><p class="btn btn-xs btn-info" >ทำแบบทดสอบก่อนเรียนแล้ว</p></a>
+             <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff" ><p class="btn btn-xs btn-success" >เข้าสู่บทเรียน</p></a>
            </div>
          </div>
 
-       <?php }else{ ?>
+       <?php } ?>
+     <?php } ?>
+   <?php } while ($row_choice = mysqli_fetch_assoc($choice)); ?>
 
-
-
-        <div class="card pmd-card">
-          <div class="pmd-card-media">
-            <iframe id="existing-iframe-example" type="text/html" class="img-fluid" width="<?php echo $width ?>" height="<?php echo $height ?>"
-              src="https://www.youtube.com/embed/<?php echo $id ?>?enablejsapi=1&autoplay=0&amp;controls=1&amp;rel=0&amp;fs=0&amp;enablejsapi=1" frameborder="0" style="pointer-events: none;">
-            </iframe> 
-
-          </div>
-          <div class="card-body">
-           <!-- Card Title -->
-           <h2 class="card-title"><?php echo $row_choice['choice_name']; ?></h2>
-
-           <!-- Card Text -->
-           <p class="card-text"><h4><?php echo $row_choice['choice_detail']; ?></h4></p>
-
-           <!-- Card Action -->
-           <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff"><p class="btn btn-xs btn-danger">ทำแบบทดสอบแล้ว</p></a>
-         </div>
-       </div>
-
-
-     <?php  } ?>
-
-
-   <?php }else{?>
-
-     <div class="card pmd-card">
-      <div class="pmd-card-media">
-        <iframe id="existing-iframe-example" type="text/html" class="img-fluid" width="<?php echo $width ?>" height="<?php echo $height ?>"
-          src="https://www.youtube.com/embed/<?php echo $id ?>?enablejsapi=1&autoplay=0&amp;controls=1&amp;rel=0&amp;fs=0&amp;enablejsapi=1" frameborder="0" style="pointer-events: none;" >
-        </iframe> 
-
-      </div>
-      <div class="card-body">
-       <!-- Card Title -->
-       <h2 class="card-title"><?php echo $row_choice['choice_name']; ?></h2>
-
-       <!-- Card Text -->
-       <p class="card-text"><h4><?php echo $row_choice['choice_detail']; ?></h4></p>
-
-       <!-- Card Action -->
-       <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff" ><p class="btn btn-xs btn-success" >เข้าสู่บทเรียน</p></a>
-     </div>
-   </div>
-
- <?php } ?>
-<?php } ?>
-<?php } while ($row_choice = mysqli_fetch_assoc($choice)); ?>
-
-<?php }
-mysqli_free_result($choice);
-?>
+ <?php }
+ mysqli_free_result($choice);
+ ?>

@@ -44,7 +44,7 @@ mysqli_close($con);
 
 	<script type="text/javascript">
 
-		var $ws = 'index.php?ep&user_id=<?php echo $id ?>';
+		var $ws = 'index.php?su';
 
 		setTimeout(function () { 
 			swal({
@@ -67,7 +67,7 @@ mysqli_close($con);
 
 		<script type="text/javascript">
 
-			var $ws = 'index.php?ep&user_id=<?php echo $id ?>';
+			var $ws = 'index.php?su';
 
 			setTimeout(function () { 
 				swal({

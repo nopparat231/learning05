@@ -3,19 +3,19 @@
 
 <?php 
 
-  $choice_id = $_POST["data1"];
+$choice_id = $_GET["choice_id"];
 
-  $query_editc = "SELECT * FROM choice where choice_id = $choice_id";
-  $editc = mysqli_query($con,$query_editc) or die(mysqli_error());
-  $row_editc = mysqli_fetch_assoc($editc);
-  $totalRows_editc = mysqli_num_rows($editc);
+$query_editc = "SELECT * FROM choice where choice_id = $choice_id";
+$editc = mysqli_query($con,$query_editc) or die(mysqli_error());
+$row_editc = mysqli_fetch_assoc($editc);
+$totalRows_editc = mysqli_num_rows($editc);
 
 ?>
 
 
 <body>
 
-  <form action="edit_choice_db.php" method="post">
+  <form action="edit_choice_db.php"  id="upload_form" enctype="multipart/form-data" method="post">
     <div class="modal fade" style="" id="editchoiceModal" tabindex="-1" role="dialog" aria-labelledby="editchoiceModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -31,33 +31,41 @@
                 <div class="col-9">
                  <input type="text" class="form-control" required="required" id="choice_name" name="choice_name" placeholder="กรุณากรอกหมวดหมู่"  value="<?php echo $row_editc['choice_name'] ?>"> 
                  <input type="hidden" name="choice_id" value="<?php echo $choice_id; ?>">
-                </div>
-              </div>
+               </div>
+             </div>
 
-              <div class="form-group row"> 
-                <label for="inputmailh" class="col-3 col-form-label">URL Youtube</label>
-                <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="video" name="video" placeholder="กรุณากรอก URL"  value="<?php echo $row_editc['video'] ?>"> 
-                </div>
-              </div>
+             <div class="form-group row"> 
+              <label for="inputmailh" class="col-3 col-form-label">เลือกไฟล์ Video</label>
+              <div class="col-9">
 
-              <div class="form-group row"> 
-                <label for="inputmailh" class="col-3 col-form-label">รายละเอียด</label>
-                <div class="col-9">
-                  <input type="text" class="form-control"  required="required"  id="videodetail" name="choice_detail" placeholder="กรุณากรอก URL"  value="<?php echo $row_editc['choice_detail'] ?>"> 
-                </div>
-              </div>
 
-            </form>
-          </div>
-          <div class="modal-footer"> 
-            <button type="submit" class="btn btn-primary">ยืนยัน</button> 
-            <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-          </div>
+                <?php include 'up.php'; ?>
+                  <input type="file" name="file1" id="file1" value="../img/<?php echo $row_editc['video']; ?>">
+
+                  <progress id="progressBar" value="0" max="100" style="width:100%"></progress>
+           
+
+              </div>
+            </div>
+
+            <div class="form-group row"> 
+              <label for="inputmailh" class="col-3 col-form-label">รายละเอียด</label>
+              <div class="col-9">
+                <input type="text" class="form-control"  required="required"  id="videodetail" name="choice_detail" placeholder="กรุณากรอก รายละเอียด"  value="<?php echo $row_editc['choice_detail'] ?>"> 
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer"> 
+          <button type="submit" class="btn btn-primary">ยืนยัน</button>
+          <a href="index.php?sc"  type="button" class="btn btn-danger" >ยกเลิก</a>
+
         </div>
       </div>
     </div>
-  </form>
+  </div>
+</form>
 
 
 </body>

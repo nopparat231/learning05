@@ -19,7 +19,7 @@ if(session_status() == PHP_SESSION_NONE){
 <?php include 'header.php'; ?>
 
 <div class="container">
-  <div class="row">
+  <div class="row" align="center">
     <div class="col-md-12">
 
 
