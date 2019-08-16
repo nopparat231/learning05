@@ -1,3 +1,4 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <?php
 require_once('conn.php');
 
@@ -9,7 +10,7 @@ if(!$objResult)
 {
   echo "<script>";
   echo "alert('การยืนยันบัญชีไม่สำเร็จ !');";
-  //echo "window.location ='index.php'; ";
+  echo "window.location ='index.php'; ";
   echo "</script>";
 
 }

@@ -24,10 +24,9 @@
                 <label for="inputmailh" class="col-3 col-form-label">เลือกไฟล์ Video</label>
                 <div class="col-9">
 
-                  <?php include 'up.php'; ?>
+                  <?php //include 'up.php'; ?>
                   <input type="file" name="file1" id="file1">
 
-                  <progress id="progressBar" value="0" max="100" style="width:100%"></progress>
                   
 
                 </div>

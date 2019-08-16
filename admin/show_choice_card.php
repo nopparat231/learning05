@@ -44,7 +44,9 @@ $totalRows_choice = mysqli_num_rows($choice);
          <p class="card-text"><h4><?php echo $row_choice['choice_detail']; ?></h4></p>
 
          <!-- Card Action -->
-         <a href="index.php?ec&choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><p class="btn btn-xs btn-info" >แก้ไข</p></a>
+         <a href="index.php?ec&choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><p class="btn btn-xs btn-warning" >แก้ไขบทเรียน</p></a>
+
+         <a href="index.php?showchoice_s&choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><p class="btn btn-xs btn-info" >แก้ไขคำถาม</p></a>
 
          <a href="del_choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&st=1"><p class="btn btn-xs btn-danger" >ลบ</p></a>
 

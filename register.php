@@ -54,6 +54,12 @@
   </div><font color="red" size="5">*</font>
 </div>
 
+<div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">รหัสประจำตัว</label>
+  <div class="col-9">
+    <input type="number" name="user_stid" class="form-control" id="user_stid" required="กรุณากรอกรหัสให้ครบ" placeholder="กรุณากรอกรหัสประจำตัว" autocomplete="off" title="กรุณากรอกรหัสให้ครบ" />
+  </div><font color="red" size="5">*</font>
+</div>
+
 <div class="form-group row">
  <label class="col-2">ประเภท</label>
  <div class="col-9">

@@ -26,7 +26,7 @@ if (!$fileTmpLoc) { // if file not chosen
 if(move_uploaded_file($fileTmpLoc, "../img/$fileName")){
 
 
-$sql ="INSERT INTO choice (choice_name,  video ,  choice_detail) VALUES ('$choice_name', '$fileName' , '$choice_detail')";
+$sql ="INSERT INTO choice (choice_name,  video ,  choice_detail , choice_status) VALUES ('$choice_name', '$fileName' , '$choice_detail' , 0)";
 $result = mysqli_query( $con,$sql) or die("Error in query : $sql" .mysqli_error());
 }
 mysqli_close($con);

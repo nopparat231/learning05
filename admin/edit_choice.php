@@ -39,10 +39,10 @@ $totalRows_editc = mysqli_num_rows($editc);
               <div class="col-9">
 
 
-                <?php include 'up.php'; ?>
+                <?php //include 'up.php'; ?>
                   <input type="file" name="file1" id="file1" value="../img/<?php echo $row_editc['video']; ?>">
 
-                  <progress id="progressBar" value="0" max="100" style="width:100%"></progress>
+                 
            
 
               </div>

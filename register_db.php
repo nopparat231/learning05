@@ -7,6 +7,9 @@
 
 
 <?php
+error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting( error_reporting() & ~E_NOTICE );
+date_default_timezone_set('Asia/Bangkok');
 include('conn.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
 $Firstname = $_REQUEST["Firstname"];
@@ -15,6 +18,7 @@ $Username = $_REQUEST["Username"];
 $Password = $_REQUEST["Password"];
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
+$user_stid = $_REQUEST["user_stid"];
 $Userlevel = "M";
 $Status = "N";
 $session_id = session_id();
@@ -73,13 +77,13 @@ if ($numemail > 0 ){ ?>
 	//เพิ่มเข้าไปในฐานข้อมูล
       $d = date("Y-m-d");
       $user_date = date('Y-m-d', strtotime('+2 years', strtotime($d)));
-			$sql = "INSERT INTO user(Firstname, Lastname, Username, Password, email ,phone , Userlevel , user_date , session_id ,  Status)
-			VALUES('$Firstname', '$Lastname', '$Username', '$Password', '$email' , '$phone' , '$Userlevel'  , '$user_date', '$session_id', '$Status')";
+			$sql = "INSERT INTO user (Firstname, Lastname, Username, Password, email ,phone , Userlevel , user_date ,   user_stid , session_id ,  Status)
+			VALUES('$Firstname', '$Lastname', '$Username', '$Password', '$email' , '$phone' , '$Userlevel'  , '$user_date', '$user_stid' , '$session_id', '$Status')";
 
 			$result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 			$ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
-			$ma = "https://digitalmarketing.shpjm.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
-     $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
+			$ma = "https://education.shpjm.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
+     $massage = "<h3> Activate user account</h3><br>".$ma;
    }
 	//ปิดการเชื่อมต่อ database
    mysqli_close($con);
@@ -90,9 +94,9 @@ if ($numemail > 0 ){ ?>
 
      ini_set( 'display_errors', 1 );
      error_reporting( E_ALL );
-     $from = "service@shpjm.com";
+     $from = "education@shpjm.com";
      $to = $email;
-     $subject = "ยืนยันการสมัครสมาชิกดเว็บ sharelearningmedia.com";
+     $subject = "Activate user account education.shpjm.com";
      $message = $massage;
      $headers = "From:" . $from . "\r\n";
      $headers .= "Content-Type: text/html; charset=utf-8\r\n";

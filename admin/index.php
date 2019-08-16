@@ -76,9 +76,9 @@ if(session_status() == PHP_SESSION_NONE){
         <div class="row" align="center">
           <div class="col-md-12">
             <!-- <button id="editch">test</button> -->
-            <br>
-            <a href="index.php.php" class="myButton" data-toggle='modal' data-target='#addchoiceModal'>+</a>
-            <br><br>
+            <div class="py-2">
+              <a href="index.php.php" class="myButton" data-toggle='modal' data-target='#addchoiceModal'>+</a>
+            </div><br>
             <!-- Card Deck -->
             <div class="card-columns">
 

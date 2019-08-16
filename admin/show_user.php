@@ -15,10 +15,9 @@ $totalRows_user = mysqli_num_rows($user);
 <div class="col-md-12">
 	<div class="py-2">
 		<div class="container">
-			<div class="row">
+			<div class="row" align="center">
 				<div class="col-md-12">
-					<h1 class="text-center" >จัดการผู้ใช้</h1>
-					<hr>
+					<a href="index.php.php" class="myButton" data-toggle='modal' data-target='#addMemModal'>+</a>
 				</div>
 			</div>
 		</div>
@@ -30,8 +29,8 @@ $totalRows_user = mysqli_num_rows($user);
 				<div class="col-md-12">
 					<div class="table-responsive text-center">
 						<?php if ($totalRows_user > 0) {?>
-						<table class="table table-hover" id="example" bgcolor="white">
-						
+							<table class="table table-hover" id="example" bgcolor="white">
+
 
 								<thead class="thead-dark">
 									<tr class="text-center">
@@ -118,4 +117,4 @@ $totalRows_user = mysqli_num_rows($user);
 		</div>
 	</div>
 
-<br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br>
