@@ -19,7 +19,7 @@ $Password = $_REQUEST["Password"];
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $user_stid = $_REQUEST["user_stid"];
-$Userlevel = "M";
+$Userlevel = $_REQUEST["Userlevel"];
 $Status = "N";
 $session_id = session_id();
 

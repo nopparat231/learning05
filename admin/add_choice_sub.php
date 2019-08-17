@@ -1,6 +1,8 @@
 
 <?php 
-$query_cc = "SELECT * FROM choice ";
+$choice_id = $_GET['choice_id'];
+
+$query_cc = "SELECT * FROM choice WHERE choice_status <> 1 AND choice_id =" .$choice_id;
 $cc = mysqli_query($con,$query_cc) or die(mysqli_error());
 $row_cc = mysqli_fetch_assoc($cc);
 $totalRows_cc = mysqli_num_rows($cc);
@@ -8,9 +10,13 @@ $totalRows_cc = mysqli_num_rows($cc);
 ?>
 <body>
 
+
+
   <form action="add_choice_sub_db.php" method="post">
-    <div class="modal fade" style="" id="addchoicesubModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+
+    <div class="modal fade bd-example-modal-lg" id="addchoicesubModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">เพิ่มคำถาม</h5>
@@ -20,58 +26,58 @@ $totalRows_cc = mysqli_num_rows($cc);
             <form id="c_form-h" class="">
 
              <div class="form-group row"> 
-              <label for="inputmailh" class="col-2 col-form-label">หมวด</label>
-              <div class="col-10">
+              <label for="inputmailh" class="col-1 col-form-label">หมวด</label>
+              <div class="col-11">
                <div class="form-group">
 
                 <select class="form-control" id="exampleFormControlSelect1" name="choice_id" required="required">
 
                   <?php do { ?>
-                    
-                  <option  value="<?php echo $row_cc['choice_id']; ?>"><?php echo $row_cc['choice_name']; ?></option>
-                      
-                      
-                    <?php } while ($row_cc = mysqli_fetch_assoc($cc)); ?>
 
-                  </select>
-                </div>
+                    <option  value="<?php echo $row_cc['choice_id']; ?>"><?php echo $row_cc['choice_name']; ?></option>
+
+
+                  <?php } while ($row_cc = mysqli_fetch_assoc($cc)); ?>
+
+                </select>
               </div>
+            </div>
+          </div>
+
+          <div class="form-group row"> 
+            <label for="inputmailh" class="col-1 col-form-label">คำถาม</label>
+            <div class="col-11">
+              <input type="text" class="form-control" id="question" name="question" required="required" placeholder="กรุณากรอกคำถาม"> </div>
             </div>
 
             <div class="form-group row"> 
-              <label for="inputmailh" class="col-2 col-form-label">คำถาม</label>
-              <div class="col-10">
-                <input type="text" class="form-control" id="question" name="question" required="required" placeholder="กรุณากรอกคำถาม"> </div>
-              </div>
+              <label for="inputmailh" class="col-1 col-form-label">1 ).</label>
+              <div class="col-5">
+                <input type="text" class="form-control" id="c1" name="c1"  required="required" placeholder="กรอกข้อที่ 1"> </div>
 
-              <div class="form-group row"> 
-                <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 1</label>
-                <div class="col-10">
-                  <input type="text" class="form-control" id="c1" name="c1"  required="required" placeholder="กรอกข้อที่ 1"> </div>
+                <label for="inputmailh" class="col-1 col-form-label">2 ).</label>
+                <div class="col-5">
+                  <input type="text" class="form-control" id="c2" name="c2"  required="required" placeholder="กรอกข้อที่ 2"> </div>
+
                 </div>
 
                 <div class="form-group row"> 
-                  <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 2</label>
-                  <div class="col-10">
-                    <input type="text" class="form-control" id="c2" name="c2"  required="required" placeholder="กรอกข้อที่ 2"> </div>
-                  </div>
 
-                  <div class="form-group row"> 
-                    <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 3</label>
-                    <div class="col-10">
-                      <input type="text" class="form-control" id="c3" name="c3"  required="required" placeholder="กรอกข้อที่ 3"> </div>
+                  <label for="inputmailh" class="col-1 col-form-label">3 ).</label>
+                  <div class="col-5">
+                    <input type="text" class="form-control" id="c3" name="c3"  required="required" placeholder="กรอกข้อที่ 3"> </div>
+
+                    <label for="inputmailh" class="col-1 col-form-label">4 ).</label>
+                    <div class="col-5">
+                      <input type="text" class="form-control" id="c4" name="c4"  required="required" placeholder="กรอกข้อที่ 4"> </div>
+
                     </div>
 
-                    <div class="form-group row"> 
-                      <label for="inputmailh" class="col-2 col-form-label">ข้อที่ 4</label>
-                      <div class="col-10">
-                        <input type="text" class="form-control" id="c4" name="c4"  required="required" placeholder="กรอกข้อที่ 4"> </div>
-                      </div>
 
                       <div class="form-group row"> 
-                        <label for="inputmailh" class="col-2 col-form-label">คำตอบ</label>
-                        <div class="col-10">
-                          <input type="number" class="form-control" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="คำตอบเป็นตัวเลข เช่น 1 , 2 , 3 , 4" /> </div>
+                        <label for="inputmailh" class="col-1 col-form-label">เฉลย</label>
+                        <div class="col-4">
+                          <input type="number" class="form-control" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="เฉลย เช่นข้อ 1 , 2 , 3 , 4" /> </div>
                         </div>
 
 

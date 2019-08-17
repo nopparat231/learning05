@@ -114,7 +114,7 @@ $totalRows_learning = mysqli_num_rows($learning);
                   <?php else: ?>
                   
 
-                    <a href="del_choice_sub.php?choice_id=<?php echo $choice_id; ?>&id=<?php echo $row_learning['id'];?>&st=0" class="btn btn-outline-secondary my-2 my-sm-0 bu" onClick="return confirm('ยืนยันการใช้งานคำถาม');"><i class="fa fa-repeat" aria-hidden="true"></i></i></a>
+                    <a href="del_choice_sub.php?choice_id=<?php echo $choice_id; ?>&id=<?php echo $row_learning['id'];?>&st=0" class="btn btn-outline-secondary my-2 my-sm-0 bu" onClick="return confirm('ยืนยันการใช้งานคำถาม');"><i class="fa fa-repeat" aria-hidden="true"></i></a>
                   </td>
                 <?php endif ?>
               </tr>

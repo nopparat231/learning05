@@ -12,7 +12,7 @@
   <div class="form-group row"> 
     <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
     <div class="col-9">
-      <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" autocomplete="off" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" >
+      <input type="password" name="Password" id="txtNewPassword" class="form-control" required placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" autocomplete="off" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" >
       <span id="result"></span>
 
     </div><font color="red" size="5">*</font>
@@ -64,7 +64,7 @@
  <label class="col-2">ประเภท</label>
  <div class="col-9">
   <div class="input-group">
-    <select name="cars" class="custom-select mb-2" required>
+    <select name="Userlevel" class="custom-select mb-2" required>
       <option selected>กรุณาเลือกประเภท</option>
       <option value="A">ครู</option>
       <option value="M">นักเรียน</option>
