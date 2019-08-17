@@ -55,15 +55,6 @@ $totalRows_user = mysqli_num_rows($user);
 
    </div>
  </div>
- <div class="form-group row">
-  <label class="col-2">วันหมดอายุ<br></label>
-  <div class="col-9">
-    <?php $d = date("Y-m-d"); ?>
-    
-    <input type="date" name="user_date" min="<?php echo $d; ?>" value="<?php echo date('Y-m-d',strtotime($row_user['user_date'])) ?>" />
-
-  </div>
-</div>
 
 <?php 
 $m = '';

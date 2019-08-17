@@ -32,7 +32,7 @@ if(session_status() == PHP_SESSION_NONE){
         $sh = isset($_REQUEST['showchoice']);
         $shs = isset($_REQUEST['showchoice_s']);
         $sp = isset($_REQUEST['sp']);
-        $ep = isset($_REQUEST['ep']);
+        $eus = isset($_REQUEST['eus']);
         $editc = isset($_REQUEST['editc']);
         $su = isset($_REQUEST['su']);
         $anw = isset($_REQUEST['anw']);
@@ -48,11 +48,10 @@ if(session_status() == PHP_SESSION_NONE){
         }elseif ($sh <> '') {
           include 'showchoice.php';
         }elseif ($shs <> '') {
-          include 'showchoice_sub.php';
-        }elseif ($sp <> '') {
+          include 'showchoice_sub.php'; ?>
+
+      <?php  }elseif ($sp <> '') {
           include 'editprofile_show.php';
-        }elseif ($ep <> '') {
-          include 'editprofile.php';
         }elseif ($editc <> '') {
          include 'show_choice_all.php';
        }elseif ($su <> '') { 
@@ -123,25 +122,54 @@ if(session_status() == PHP_SESSION_NONE){
 </div>
 </div>
 
-<?php if ($eu <> ''): ?>
+<br><br><br>
+ <?php include 'footer_admin.php'; 
+
+//เช็คแก้ไขคำถาม
+$id = '';
+if (isset($_GET['id'])){
+$id = $_GET['id'];
 
 
-  <?php else: ?>
-    <style>
-      .footer {
-       position: fixed;
-       bottom: 0;
-       width: 100%;
-       color: white;
-       text-align: center;
-     }
-   </style>
+
+}
+
+if ($id <> '') {
+
+ ?>
+
+  <script type="text/javascript">
+
+    //onload show modal script ชุดนี้โหลดมาตรงๆ ไม่มีหน่วงเวลานะ
+    $(document).ready(function(){
+      $("#edcModal").modal('show');
+    });
+    
+
+  </script>
+
+<?php } ?>
+
+
+<?php if ($eus <> ''): ?>
+
+<?php if (isset($_GET['user_id'])){ 
+include 'editprofile.php';
+?>
+
+  <script type="text/javascript">
+
+    //onload show modal script ชุดนี้โหลดมาตรงๆ ไม่มีหน่วงเวลานะ
+    $(document).ready(function(){
+      $("#EditUseModal").modal('show');
+    });
+    
+
+  </script>
+
+<?php } ?>
 
  <?php endif ?>
- <?php include 'footer_admin.php'; ?>
-
-
-
 
 </body>
 

@@ -15,7 +15,7 @@
       background-color: #cccc;
       font-family: 'Itim', cursive;
     }
-
+<?php date_default_timezone_set('Asia/Bangkok'); ?>
   </style>
 </head>
 

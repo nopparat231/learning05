@@ -76,7 +76,7 @@ $totalRows_cc = mysqli_num_rows($cc);
 
                       <div class="form-group row"> 
                         <label for="inputmailh" class="col-1 col-form-label">เฉลย</label>
-                        <div class="col-4">
+                        <div class="col-5">
                           <input type="number" class="form-control" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="เฉลย เช่นข้อ 1 , 2 , 3 , 4" /> </div>
                         </div>
 

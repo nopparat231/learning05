@@ -12,96 +12,87 @@
           <div class="container text-center ">
             <div class="row">
 
-              <div class="col-md-12">
-
-                <table border="0">
-                 <tbody>
-
-                  <tr>
-                    <td>ชื่อ</td>
-                    <td style="width: 300px">
-                      <input type="text" name="Firstname" class="form-control" autocomplete="off"  required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ"   onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น">
-                    </td>
-
-                    <td></td>
-                    <td>นามสกุล</td>
-                    <td>
-                      <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" autocomplete="off"  required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>อีเมล์</td>
-                    <td>
-                     <input type="email" name="email" class="form-control" id="inputmailh" autocomplete="off"  required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์">
-                   </td>
-                   <td></td>
-                   <td>เบอร์โทร</td>
-                   <td>
-                     <input name="phone" class="form-control" id="input-num" autocomplete="off"  required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                     type="tel"
-                     maxlength = "10" onkeyup="num();">
-                   </td>
-                 </tr>
-
-                 <tr>
-                   <td>ชื่อผู้ใช้</td>
-                   <td>
-                    <input type="text" class="form-control" name="Username" id="input-user"  placeholder="Username" pattern="^[a-zA-Z0-9]+$" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป" autocomplete="off" minlength="3" maxlength="25"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();">
-                  </td>
-                  <td></td>
-                  <td>รหัสผ่าน</td>
-                  <td>
-                    <input type="password" id="txtNewPassword" name="Password" class="form-control" placeholder="Password" autocomplete="off"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" required >
-                         <span id="result"></span>
-                  </td>
-                </tr>
+              <table border="0">
+               <tbody>
 
                 <tr>
-
-
-                  <td>รหัสประจำตัว</td>
-                  <td>
-                    <input type="number" class="form-control" id="input-num-id" name="user_stid" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" minlength="10" autocomplete="off"  required="required" onkeyup="numid();" placeholder="กรุณากรอกรหัสประจำตัว" >
+                  <td>ชื่อ</td>
+                  <td style="width: 300px">
+                    <input type="text" name="Firstname" class="form-control" autocomplete="off"  required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ"   onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น">
                   </td>
+
                   <td></td>
-
-                  <td>ประเภท</td>
+                  <td>นามสกุล</td>
                   <td>
-
-                    <select class="custom-select" name="Userlevel" style="width: 210px">
-
-                     <option  value="M">นักเรียน</option>
-                     <option  value="A">ครู</option>
-                     
-
-                   </select>
+                    <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" autocomplete="off"  required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น">
+                  </td>
+                </tr>
+                <tr>
+                  <td>อีเมล์</td>
+                  <td>
+                   <input type="email" name="email" class="form-control" id="inputmailh" autocomplete="off"  required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์">
+                 </td>
+                 <td></td>
+                 <td>เบอร์โทร</td>
+                 <td>
+                   <input name="phone" class="form-control" id="input-num" autocomplete="off"  required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                   type="tel"
+                   maxlength = "10" onkeyup="num();">
                  </td>
                </tr>
 
-
-             </tbody>
-             <tfoot>
-               <tr> 
-                 <td></td>
-                 <td></td>
-                 <td> 
-                   &nbsp; 
-                 </td>
-                 <td> 
-                  &nbsp; 
+               <tr>
+                 <td>ชื่อผู้ใช้</td>
+                 <td>
+                  <input type="text" class="form-control" name="Username" id="input-user"  placeholder="Username" pattern="^[a-zA-Z0-9]+$" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป" autocomplete="off" minlength="3" maxlength="25"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();">
+                </td>
+                <td></td>
+                <td>รหัสผ่าน</td>
+                <td>
+                  <input type="password" id="txtNewPassword" name="Password" class="form-control" placeholder="Password" autocomplete="off"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" required >
+                  <span id="result"></span>
                 </td>
               </tr>
 
-            </tfoot>
-
-          </table>
+              <tr>
 
 
+                <td>รหัสประจำตัว</td>
+                <td>
+                  <input type="number" class="form-control" id="input-num-id" name="user_stid" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" minlength="10" autocomplete="off"  required="required" onkeyup="numid();" placeholder="กรุณากรอกรหัสประจำตัว" >
+                </td>
+                <td></td>
+
+                <td>ประเภท</td>
+                <td>
+
+                  <select class="custom-select" name="Userlevel" style="width: 210px">
+
+                   <option  value="M">นักเรียน</option>
+                   <option  value="A">ครู</option>
+                   
+
+                 </select>
+               </td>
+             </tr>
 
 
-        </div>
+           </tbody>
+           <tfoot>
+             <tr> 
+               <td></td>
+               <td></td>
+               <td> 
+                 &nbsp; 
+               </td>
+               <td> 
+                &nbsp; 
+              </td>
+            </tr>
 
+          </tfoot>
 
+        </table>
 
       </div>
 
