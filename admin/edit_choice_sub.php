@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
               <div class="col-11">
                <div class="form-group">
 
-                <select class="form-control" id="exampleFormControlSelect1" name="choice_id" required="required">
+                <select class="form-control"  name="choice_id" required="required">
 
 
                   <?php do { ?>
@@ -73,17 +73,19 @@ if (isset($_GET['id'])) {
             <div class="form-group row"> 
               <label for="inputmailh" class="col-1 col-form-label">คำถาม</label>
               <div class="col-11">
-                <input type="text" class="form-control" id="question" name="question" required="required" placeholder="กรุณากรอกคำถาม" value="<?php echo $row_editc['question'] ?>"> </div>
+                <textarea name="question" required="required" placeholder="กรุณากรอกคำถาม" ><?php echo $row_editc['question'] ?></textarea>
+
+              </div>
               </div>
 
               <div class="form-group row"> 
                 <label for="inputmailh" class="col-1 col-form-label">1 ).</label>
                 <div class="col-5">
-                  <input type="text" class="form-control" id="c1" name="c1"  required="required" placeholder="กรอกข้อที่ 1" value="<?php echo $row_editc['c1'] ?>"> </div>
+                  <input type="text" class="form-control"  name="c1"  required="required" placeholder="กรอกข้อที่ 1" value="<?php echo $row_editc['c1'] ?>"> </div>
 
                   <label for="inputmailh" class="col-1 col-form-label">2 ).</label>
                   <div class="col-5">
-                    <input type="text" class="form-control" id="c2" name="c2"  required="required" placeholder="กรอกข้อที่ 2"  value="<?php echo $row_editc['c2'] ?>"> </div>
+                    <input type="text" class="form-control" name="c2"  required="required" placeholder="กรอกข้อที่ 2"  value="<?php echo $row_editc['c2'] ?>"> </div>
 
                   </div>
 
@@ -91,11 +93,11 @@ if (isset($_GET['id'])) {
 
                     <label for="inputmailh" class="col-1 col-form-label">3 ).</label>
                     <div class="col-5">
-                      <input type="text" class="form-control" id="c3" name="c3"  required="required" placeholder="กรอกข้อที่ 3" value="<?php echo $row_editc['c3'] ?>"> </div>
+                      <input type="text" class="form-control" name="c3"  required="required" placeholder="กรอกข้อที่ 3" value="<?php echo $row_editc['c3'] ?>"> </div>
 
                       <label for="inputmailh" class="col-1 col-form-label">4 ).</label>
                       <div class="col-5">
-                        <input type="text" class="form-control" id="c4" name="c4"  required="required" placeholder="กรอกข้อที่ 4" value="<?php echo $row_editc['c4'] ?>"> </div>
+                        <input type="text" class="form-control"  name="c4"  required="required" placeholder="กรอกข้อที่ 4" value="<?php echo $row_editc['c4'] ?>"> </div>
 
                       </div>
 
@@ -103,7 +105,7 @@ if (isset($_GET['id'])) {
                       <div class="form-group row"> 
                         <label for="inputmailh" class="col-1 col-form-label">เฉลย</label>
                         <div class="col-5">
-                          <input type="number" class="form-control" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="เฉลย เช่นข้อ 1 , 2 , 3 , 4" value="<?php echo $row_editc['answer'] ?>"  /> </div>
+                          <input type="number" class="form-control" id="input-numm" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();" name="answer"  required="required" placeholder="เฉลย เช่นข้อ 1 , 2 , 3 , 4" value="<?php echo $row_editc['answer'] ?>"  /> </div>
                         </div>
 
 
@@ -125,7 +127,7 @@ if (isset($_GET['id'])) {
 
             <script type="text/javascript">
               function num() {
-                var element = document.getElementById('input-num');
+                var element = document.getElementById('input-numm');
                 element.value = element.value.replace(/[^1-4]+/, '');
               };
             </script>
