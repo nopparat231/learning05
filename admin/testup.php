@@ -11,10 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-   $d = date("Y-m-d");
-      $user_date = date('Y-m-d', strtotime('+2 years', strtotime($d)));
-			$sql = "INSERT INTO user (Firstname, Lastname, Username, Password, email ,phone , Userlevel , user_date ,   user_stid , session_id ,  Status)
-			VALUES('Firstname', 'Lastname', 'Username', 'Password', 'email' , '044444444' , 'm'  , '$user_date', ,$user_stid' , '$session_id', '$Status')";
+$sql ="INSERT INTO choice (choice_name,video,choice_detail,choice_status) VALUES ('gg', 'gg' , 'gg' ,0) ";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

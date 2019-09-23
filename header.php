@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 
   <title>สื่อแอนิเมชั่น</title>
-  <!-- <link rel="icon" href="./img/5.png" /> -->
-  <link rel="shortcut icon" href="img/light-bulb.png" />
+  <!-- <link rel="icon" href="./img/movie2.png" /> -->
+  <link rel="shortcut icon" href="img/movie4.png" />
   <style type="text/css">
     body {
-      background-image: url("img/email-pattern.png");
+      background-image: url("img/1217270827.gif");
       background-color: #cccc;
       font-family: 'Itim', cursive;
     }

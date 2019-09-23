@@ -46,7 +46,7 @@ $totalRows_watch = mysqli_num_rows($watch);
 
     ?>
     <!-- เช็คคำถามมากกว่า 11 ถามถึงจะแสดง -->
-    <?php if ($totalRows_testing > 11){ ?>
+    <?php if ($totalRows_testing >= 11){ ?>
 
       <?php if ($totalRows_query3 > 0){ ?>
 

@@ -81,7 +81,7 @@ if ($numemail > 0 ){ ?>
       VALUES('$Firstname', '$Lastname', '$Username', '$Password', '$email' , '$phone' , '$Userlevel'  , '$user_date', '$user_stid' , '$session_id', '$Status')";
 
       $result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
-      $ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
+      //$ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
 
     }
 

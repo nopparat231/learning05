@@ -48,11 +48,11 @@ if (isset($_SESSION["UserID"])) {
         <?php else: ?>
           <br>
           <div class="col-md-12" style="text-align: center;"> <!-- ใส่วิดีโอตัวอย่าง -->
-
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/-dayhtza6tQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             <center>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/IiTjI_Bleu4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </center> 
             </div>
-            <br>
             <font color="red">
               <h4 class="">คำแนะนำ </h4>
               <h5 style="text-align: left;">
@@ -61,11 +61,9 @@ if (isset($_SESSION["UserID"])) {
                   <li>ท่านต้องลงทะเบียนและใช้รหัสผ่านในการเข้าสู่ระบบ</li>
                   <li>ควรเป็นผู้ทำรายการทุกขั้นตอนด้วยตัวเองและรักษารหัสผ่านเป็นความลับเพื่อป้องกันการแอบอ้างการเข้าสู่ระบบ</li>
                   <li>ผู้ที่ยังไม่สมัครเป็นสมาชิกให้กดปุ่ม สมัครสมาชิก สำหรับผู้ที่สมัครเป็นสมาชิกให้กดปุ่ม เข้าสู่ระบบ เพื่อทำการ Login เข้าสู่ระบบ</li>
-
                 </ol>
               </h5>
             </font>
-
 
 
           </div>
